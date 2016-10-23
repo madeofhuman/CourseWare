@@ -3,6 +3,7 @@ package com.madeofhuman.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -14,8 +15,12 @@ public class Lesson {
   @GeneratedValue
   private Long id;
   
+  private Integer number;
   private String name;
   private String description;
+  
+  @ManyToOne
+  private Course course;
 
   /**
    * @return the id
@@ -57,5 +62,33 @@ public class Lesson {
    */
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  /**
+   * @return the number
+   */
+  public Integer getNumber() {
+    return number;
+  }
+
+  /**
+   * @param number the number to set
+   */
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  /**
+   * @return the course
+   */
+  public Course getCourse() {
+    return course;
+  }
+
+  /**
+   * @param course the course to set
+   */
+  public void setCourse(Course course) {
+    this.course = course;
   }
 }

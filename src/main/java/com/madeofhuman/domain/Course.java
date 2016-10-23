@@ -1,22 +1,28 @@
 package com.madeofhuman.domain;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author madeofhuman
  */
 @Entity
-public class Course {
+public class Course { 
   @Id
   @GeneratedValue
   private Long id;
   
-  private Integer number;
+  
   private String name;
   private String description;
+  
+  @OneToMany(mappedBy = "course")
+  private Set<Lesson> lessons = new HashSet<>();
 
   /**
    * @return the id
@@ -30,20 +36,6 @@ public class Course {
    */
   public void setId(Long id) {
     this.id = id;
-  }
-
-  /**
-   * @return the number
-   */
-  public Integer getNumber() {
-    return number;
-  }
-
-  /**
-   * @param number the number to set
-   */
-  public void setNumber(Integer number) {
-    this.number = number;
   }
 
   /**
@@ -72,5 +64,19 @@ public class Course {
    */
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  /**
+   * @return the lessons
+   */
+  public Set<Lesson> getLessons() {
+    return lessons;
+  }
+
+  /**
+   * @param lessons the lessons to set
+   */
+  public void setLessons(Set<Lesson> lessons) {
+    this.lessons = lessons;
   }
 }
