@@ -1,2 +1,2 @@
 # CourseWare
-A courseware app in Spring
+A courseware  web app in Spring
